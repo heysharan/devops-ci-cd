@@ -1,17 +1,7 @@
-import { PrismaClient } from '../generated/prisma'
+import { PrismaClient } from '../generated/prisma/index.js';
 
-const prismaClientSingleton = () => {
-    return new PrismaClient({
-        log: ['query', 'info', 'warn', 'error']
-    })
-}
-
-declare global {
-    var prisma: undefined | ReturnType<typeof prismaClientSingleton>;
-}
-
-const prisma = globalThis.prisma ?? prismaClientSingleton();
+const prisma = new PrismaClient({
+    log: ['query', 'info', 'warn', 'error'],
+  });
 
 export default prisma;
-
-if(process.env.NODE_ENV !== 'production') globalThis.prisma = prisma

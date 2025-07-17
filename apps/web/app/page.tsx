@@ -1,10 +1,15 @@
-import client from "@repo/db/prisma"
+import prisma from "@repo/db/prisma"
 
 
-export default function Page() {
+export default async function Page() {
+  const user = await prisma.user.findFirst()
+
   return (
-    <main>
-      Hi
+    <main className="flex flex-col justify-center items-center mt-20">
+      <div>Id: {user?.id}</div>
+      <div>Name: {user?.name}</div>
+      <div>Username: {user?.username}</div>
+      <div>Password: {user?.password}</div>
     </main>
   );
 }
