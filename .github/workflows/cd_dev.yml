@@ -22,8 +22,4 @@ jobs:
           script: |
             cd devops-ci-cd/
             git pull
-            pnpm install
-            pnpm run build
-            pm2 restart fe-server
-            pm2 restart http-server
-            pm2 restart ws-server
+            ls
