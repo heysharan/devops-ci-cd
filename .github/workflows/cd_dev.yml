@@ -19,6 +19,7 @@ jobs:
           script: |
             cd devops-ci-cd/
             git pull
+            ls
             pnpm install
             pnpm run build
             pm2 restart fe-server
