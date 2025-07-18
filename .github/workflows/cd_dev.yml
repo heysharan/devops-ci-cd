@@ -20,9 +20,9 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY_DEV }}
           script: |
+            export PATH=$PATH:/home/ubuntu/.local/share/pnpm:/home/ubuntu/.nvm/versions/node/v22.17.1/bin
             cd devops-ci-cd/
             git pull
-            ls
             pnpm install
             pnpm run build
             pm2 restart fe-server
