@@ -22,7 +22,7 @@ jobs:
           script: |
             export PATH=$PATH:/home/ubuntu/.local/share/pnpm:/home/ubuntu/.nvm/versions/node/v22.17.1/bin
             cd devops-ci-cd/
-            git pull
+            git pull origin main
             pnpm install
             pnpm run build
             pm2 restart fe-server
